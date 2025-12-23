@@ -46,9 +46,9 @@ const Timeline = () => {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            <span className="text-[rgb(218,255,1)]">$</span> system.history
+            <span className="text-[rgb(218,255,1)]">$</span> the.chronicles
           </h2>
-          <p className="text-[rgb(161,161,170)] font-mono text-lg">Command Timeline</p>
+          <p className="text-[rgb(161,161,170)] font-mono text-lg">Developer's Journey</p>
         </motion.div>
 
         {/* Timeline */}
@@ -61,60 +61,74 @@ const Timeline = () => {
             {timeline.map((item, index) => {
               const Icon = getTypeIcon(item.type);
               const color = getTypeColor(item.type);
+              const showChapter = index === 0 || item.chapter !== timeline[index - 1].chapter;
 
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative pl-20"
-                >
-                  {/* Icon */}
-                  <div
-                    className="absolute left-0 w-16 h-16 rounded-xl flex items-center justify-center border-2"
-                    style={{
-                      backgroundColor: 'rgb(26,28,30)',
-                      borderColor: color
-                    }}
+                <div key={index}>
+                  {showChapter && (
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      className="mb-8 mt-12 first:mt-0"
+                    >
+                      <h3 className="text-2xl font-bold text-[rgb(218,255,1)] font-mono border-b border-[rgb(63,63,63)] pb-2 inline-block">
+                        {item.chapter}
+                      </h3>
+                    </motion.div>
+                  )}
+                  <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-20"
                   >
-                    <Icon className="w-7 h-7" style={{ color }} />
-                  </div>
-
-                  {/* Content Card */}
-                  <div className="bg-[rgb(26,28,30)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[rgb(218,255,1)] transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] group">
-                    {/* Year */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <Terminal className="w-4 h-4 text-[rgb(218,255,1)]" />
-                      <span className="text-[rgb(218,255,1)] font-mono text-sm font-semibold">
-                        {item.year}
-                      </span>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-
-                    {/* Type Badge */}
-                    <span
-                      className="inline-block px-3 py-1 rounded-lg text-xs font-mono mb-3"
+                    {/* Icon */}
+                    <div
+                      className="absolute left-0 w-16 h-16 rounded-xl flex items-center justify-center border-2"
                       style={{
-                        backgroundColor: `${color}20`,
-                        color: color
+                        backgroundColor: 'rgb(26,28,30)',
+                        borderColor: color
                       }}
                     >
-                      {item.type}
-                    </span>
-
-                    {/* Description */}
-                    <p className="text-[rgb(218,218,218)] leading-relaxed">{item.description}</p>
-
-                    {/* Command line effect */}
-                    <div className="mt-4 pt-4 border-t border-[rgba(255,255,255,0.1)] font-mono text-xs text-[rgb(161,161,170)]">
-                      <span className="text-[rgb(218,255,1)]">&gt;</span> Executed: {item.year}
+                      <Icon className="w-7 h-7" style={{ color }} />
                     </div>
-                  </div>
-                </motion.div>
+
+                    {/* Content Card */}
+                    <div className="bg-[rgb(26,28,30)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[rgb(218,255,1)] transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] group">
+                      {/* Year */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <Terminal className="w-4 h-4 text-[rgb(218,255,1)]" />
+                        <span className="text-[rgb(218,255,1)] font-mono text-sm font-semibold">
+                          {item.year}
+                        </span>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+
+                      {/* Type Badge */}
+                      <span
+                        className="inline-block px-3 py-1 rounded-lg text-xs font-mono mb-3"
+                        style={{
+                          backgroundColor: `${color}20`,
+                          color: color
+                        }}
+                      >
+                        {item.type}
+                      </span>
+
+                      {/* Description */}
+                      <p className="text-[rgb(218,218,218)] leading-relaxed">{item.description}</p>
+
+                      {/* Command line effect */}
+                      <div className="mt-4 pt-4 border-t border-[rgba(255,255,255,0.1)] font-mono text-xs text-[rgb(161,161,170)]">
+                        <span className="text-[rgb(218,255,1)]">&gt;</span> Executed: {item.year}
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
               );
             })}
           </div>

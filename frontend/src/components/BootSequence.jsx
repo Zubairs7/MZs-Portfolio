@@ -8,11 +8,12 @@ const BootSequence = ({ onComplete }) => {
   const [showEnter, setShowEnter] = useState(false);
 
   const bootMessages = [
-    "> Powering system...",
-    "> Loading modules...",
-    "> Initializing core components...",
-    "> Developer profile detected.",
-    "> Access granted."
+    "> Initializing Story Protocol...",
+    "> Accessing Memory Archives...",
+    "> Loading Developer Origin Story...",
+    "> Compiling Life Experiences...",
+    "> Rendering Dreams into Code...",
+    "> Narrative Sequence Ready."
   ];
 
   useEffect(() => {

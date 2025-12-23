@@ -145,8 +145,22 @@ const ProjectModules = () => {
 
               {/* Description */}
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-[rgb(218,255,1)] mb-3">Overview</h3>
-                <p className="text-[rgb(218,218,218)] leading-relaxed">{selectedProject.description}</p>
+                <h3 className="text-xl font-semibold text-[rgb(218,255,1)] mb-3">Mission Overview</h3>
+                <p className="text-[rgb(218,218,218)] leading-relaxed mb-4">{selectedProject.description}</p>
+
+                {selectedProject.missionBrief && (
+                  <div className="bg-[rgba(218,255,1,0.05)] border border-[rgba(218,255,1,0.2)] rounded-xl p-4 mb-4">
+                    <h4 className="text-[rgb(218,255,1)] font-mono text-sm mb-2 uppercase tracking-wider">Mission Brief</h4>
+                    <p className="text-[rgb(218,218,218)] text-sm italic">"{selectedProject.missionBrief}"</p>
+                  </div>
+                )}
+
+                {selectedProject.missionDebrief && (
+                  <div className="bg-[rgba(0,255,255,0.05)] border border-[rgba(0,255,255,0.2)] rounded-xl p-4">
+                    <h4 className="text-[rgb(0,255,255)] font-mono text-sm mb-2 uppercase tracking-wider">Mission Debrief</h4>
+                    <p className="text-[rgb(218,218,218)] text-sm">{selectedProject.missionDebrief}</p>
+                  </div>
+                )}
               </div>
 
               {/* Tech Stack */}
@@ -166,7 +180,7 @@ const ProjectModules = () => {
 
               {/* Highlights */}
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-[rgb(218,255,1)] mb-3">Key Features</h3>
+                <h3 className="text-xl font-semibold text-[rgb(218,255,1)] mb-3">Mission Highlights</h3>
                 <ul className="space-y-2">
                   {selectedProject.highlights.map((highlight, i) => (
                     <li key={i} className="flex items-start gap-2 text-[rgb(218,218,218)]">
@@ -179,11 +193,17 @@ const ProjectModules = () => {
 
               {/* Actions */}
               <div className="flex gap-4">
-                <Button className="flex-1 bg-[rgb(218,255,1)] text-[rgb(17,17,19)] hover:bg-[rgb(166,190,21)] font-semibold rounded-xl transition-all duration-200">
+                <Button
+                  onClick={() => window.open(selectedProject.live, '_blank')}
+                  className="flex-1 bg-[rgb(218,255,1)] text-[rgb(17,17,19)] hover:bg-[rgb(166,190,21)] font-semibold rounded-xl transition-all duration-200"
+                >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Live
                 </Button>
-                <Button className="flex-1 bg-transparent border-2 border-[rgb(218,255,1)] text-[rgb(218,255,1)] hover:bg-[rgba(218,255,1,0.1)] font-semibold rounded-xl transition-all duration-200">
+                <Button
+                  onClick={() => window.open(selectedProject.github, '_blank')}
+                  className="flex-1 bg-transparent border-2 border-[rgb(218,255,1)] text-[rgb(218,255,1)] hover:bg-[rgba(218,255,1,0.1)] font-semibold rounded-xl transition-all duration-200"
+                >
                   <Github className="w-4 h-4 mr-2" />
                   Source Code
                 </Button>

@@ -17,7 +17,7 @@ const iconMap = {
 const SkillCard = ({ skill, index }) => {
   const [isHovered, setIsHovered] = useState(false);
   const Icon = iconMap[skill.icon];
-  
+
   const cardVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.8 },
     visible: {
@@ -39,8 +39,8 @@ const SkillCard = ({ skill, index }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      whileHover={{ 
-        scale: 1.05, 
+      whileHover={{
+        scale: 1.05,
         y: -8,
         transition: { duration: 0.3 }
       }}
@@ -55,7 +55,7 @@ const SkillCard = ({ skill, index }) => {
           opacity: isHovered ? 0.3 : 0
         }}
       />
-      
+
       {/* Main card */}
       <div className="relative bg-[rgb(26,28,30)] border-2 border-[rgb(63,63,63)] rounded-2xl p-6 h-full hover:border-[rgb(218,255,1)] transition-all duration-300 overflow-hidden">
         {/* Background particles effect */}
@@ -67,7 +67,7 @@ const SkillCard = ({ skill, index }) => {
           }}
           transition={{ duration: 0.5 }}
         />
-        
+
         {/* Icon and name */}
         <div className="flex items-center gap-4 mb-4">
           <motion.div
@@ -86,23 +86,23 @@ const SkillCard = ({ skill, index }) => {
               </motion.div>
             )}
           </motion.div>
-          
+
           <div className="flex-1">
             <h3 className="text-xl font-bold text-white mb-1">{skill.name}</h3>
-            <p className="text-[rgb(161,161,170)] text-xs font-mono">{skill.category}</p>
+            <p className="text-[rgb(161,161,170)] text-xs font-mono text-[rgb(0,255,255)]">{skill.rpgStat}</p>
           </div>
         </div>
-        
+
         {/* Description */}
         <p className="text-[rgb(218,218,218)] text-sm mb-4 line-clamp-2">
           {skill.description}
         </p>
-        
+
         {/* Proficiency bar */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <span className="text-[rgb(161,161,170)] text-xs font-mono">Proficiency</span>
-            <motion.span 
+            <span className="text-[rgb(161,161,170)] text-xs font-mono">Power Level</span>
+            <motion.span
               className="text-[rgb(218,255,1)] font-bold text-sm font-mono"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -111,7 +111,7 @@ const SkillCard = ({ skill, index }) => {
               {skill.level}%
             </motion.span>
           </div>
-          
+
           {/* Animated progress bar */}
           <div className="h-2 bg-[rgb(38,40,42)] rounded-full overflow-hidden relative">
             <motion.div
@@ -137,7 +137,7 @@ const SkillCard = ({ skill, index }) => {
             </motion.div>
           </div>
         </div>
-        
+
         {/* Hover indicator */}
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[rgb(218,255,1)] to-[rgb(0,255,255)]"
@@ -184,7 +184,7 @@ const SkillsCore = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-[rgb(218,255,1)] blur-3xl opacity-20 animate-pulse" />
               <h2 className="relative text-5xl md:text-6xl font-bold text-white">
-                <span className="text-[rgb(218,255,1)]">$</span> core.modules
+                <span className="text-[rgb(218,255,1)]">$</span> character.stats
               </h2>
             </div>
           </motion.div>
@@ -195,7 +195,7 @@ const SkillsCore = () => {
             transition={{ delay: 0.3 }}
             className="text-[rgb(161,161,170)] font-mono text-lg"
           >
-            Technical Arsenal & Expertise
+            Attribute Points & Skill Tree
           </motion.p>
         </motion.div>
 

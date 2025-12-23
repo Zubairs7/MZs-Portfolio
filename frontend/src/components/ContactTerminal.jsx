@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal, Github, Linkedin, Twitter, Mail, Send } from 'lucide-react';
+import { Terminal, Github, Linkedin, MessageCircle, Mail, Send } from 'lucide-react';
 import { contactInfo } from '../mockData';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -40,7 +40,7 @@ const ContactTerminal = () => {
   const socialLinks = [
     { icon: Github, url: contactInfo.github, label: 'GitHub' },
     { icon: Linkedin, url: contactInfo.linkedin, label: 'LinkedIn' },
-    { icon: Twitter, url: contactInfo.twitter, label: 'Twitter' },
+    { icon: MessageCircle, url: contactInfo.whatsapp, label: 'WhatsApp' },
     { icon: Mail, url: `mailto:${contactInfo.email}`, label: 'Email' }
   ];
 
