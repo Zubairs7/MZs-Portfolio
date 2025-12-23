@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MZs-Portfolio/static/css/main.c128bd46.css",
+    "main.js": "/MZs-Portfolio/static/js/main.5313a19d.js",
+    "index.html": "/MZs-Portfolio/index.html",
+    "main.c128bd46.css.map": "/MZs-Portfolio/static/css/main.c128bd46.css.map",
+    "main.5313a19d.js.map": "/MZs-Portfolio/static/js/main.5313a19d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c128bd46.css",
+    "static/js/main.5313a19d.js"
+  ]
+}
